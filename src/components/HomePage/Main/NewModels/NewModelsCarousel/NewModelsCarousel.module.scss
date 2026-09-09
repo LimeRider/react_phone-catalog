@@ -1,0 +1,307 @@
+@use '../../../../../style/breakpoints.scss' as *;
+
+.contentContainer {
+  margin-bottom: 80px;
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  @include mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.NewModelTitle {
+  font-family: Mont, sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -1%;
+  color: #f1f2f9;
+
+  @include mobile {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+
+  @include mobile {
+    gap: 8px;
+  }
+}
+
+.scrollbutton {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #323542;
+  background: #323542;
+  color: #f1f2f9;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background: #3b3e4a;
+  }
+
+  @include mobile {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include mobile {
+    gap: 8px;
+  }
+}
+
+.item {
+  flex: 0 0 calc((100% - 2 * 16px) / 4);
+  width: calc((100% - 2 * 16px) / 4);
+  height: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #161827;
+  background-color: #161827;
+  padding: 32px;
+
+  @include tablet {
+    flex: 0 0 45%;
+    width: calc((100% - 3 * 16px) / 4);
+    padding: 20px;
+  }
+
+  @include mobile {
+    flex: 0 0 45%;
+    width: 45%;
+    padding: 16px;
+  }
+}
+
+.imgPhone {
+  width: 100%;
+  height: 280px;
+  margin-bottom: 24px;
+  background-color: #161827;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include tablet {
+    height: 220px;
+    margin-bottom: 16px;
+  }
+
+  @include mobile {
+    height: 140px;
+    margin-bottom: 12px;
+  }
+}
+
+.Link {
+  margin: 0;
+  padding: 0;
+  background-color: #161827;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: Mont, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  color: #f1f2f9;
+  width: 208px;
+  margin-bottom: 8px;
+  background-color: #161827;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include mobile {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+.price {
+  font-family: Mont, sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: #f1f2f9;
+  margin-bottom: 16px;
+  background-color: #161827;
+
+  @include mobile {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.characteristics {
+  display: flex;
+  justify-content: space-between;
+  font-family: Mont, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #75767f;
+  margin-bottom: 16px;
+  background-color: #161827;
+  border-top: 1px solid #3b3e4a;
+  padding-top: 16px;
+
+  @include mobile {
+    font-size: 10px;
+    padding-top: 10px;
+  }
+}
+
+.characteristic {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #161827;
+}
+
+.characteristicText {
+  background-color: #161827;
+}
+
+.characteristicItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #161827;
+}
+
+.characteristicItemText {
+  background-color: #161827;
+  color: #f1f2f9;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+
+  @include mobile {
+    gap: 6px;
+  }
+}
+
+.addButton {
+  flex: 1;
+  padding: 8px;
+  font-family: Mont, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  text-align: center;
+  border: none;
+  background: #905bff;
+  color: #f1f2f9;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #a378ff;
+  }
+
+  @include mobile {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
+
+.addButtonClick {
+  background-color: #323542;
+
+  &:hover {
+    background-color: #4a4d58;
+  }
+}
+
+.likeButton {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #323542;
+  background: #323542;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #4a4d58;
+  }
+
+  @include mobile {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.likeButtonClick {
+  background-color: transparent;
+  border: 1px solid #323542;
+}
+
+.imgLike {
+  background: transparent;
+
+  @include mobile {
+    width: 14px;
+    height: 14px;
+  }
+}

@@ -1,0 +1,110 @@
+@use '../../../../../style/breakpoints.scss' as *;
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  height: 400px;
+
+  @include tablet {
+    height: 300px;
+    gap: 12px;
+  }
+
+  @include mobile {
+    @include mobile {
+      height: auto;
+      aspect-ratio: 4 / 3;
+      gap: 0;
+    }
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 14px;
+  height: 4px;
+  background-color: #3b3e4a;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #75767d;
+  }
+}
+
+.dotActive {
+  background-color: #f1f2f9;
+}
+
+.frame {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+
+.item {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.button {
+  flex-shrink: 0;
+  width: 32px;
+  height: 100%;
+  border: 1px solid #323542;
+  background: #323542;
+  color: #f1f2f9;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
