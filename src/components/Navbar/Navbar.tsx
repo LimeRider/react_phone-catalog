@@ -4,8 +4,13 @@ import styles from './Navbar.module.scss';
 import { useCart } from '../CartContext/CartContext';
 
 export const Navbar: React.FC = () => {
-  const { cartIds, likedIds } = useCart();
+  const { cartItems, likedIds } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const cartCount = Object.values(cartItems).reduce(
+    (sum, quantity) => sum + quantity,
+    0,
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -129,9 +134,7 @@ export const Navbar: React.FC = () => {
             src={`${import.meta.env.BASE_URL}/img/shop-bag.svg`}
             alt="shop-bag"
           />
-          {cartIds.size > 0 && (
-            <span className={styles.count}>{cartIds.size}</span>
-          )}
+          {cartCount > 0 && <span className={styles.count}>{cartCount}</span>}
         </NavLink>
       </div>
 
@@ -211,8 +214,8 @@ export const Navbar: React.FC = () => {
                   src={`${import.meta.env.BASE_URL}/img/shop-bag.svg`}
                   alt="shop-bag"
                 />
-                {cartIds.size > 0 && (
-                  <span className={styles.count}>{cartIds.size}</span>
+                {cartCount > 0 && (
+                  <span className={styles.count}>{cartCount}</span>
                 )}
               </div>
             </NavLink>

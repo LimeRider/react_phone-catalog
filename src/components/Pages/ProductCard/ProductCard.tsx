@@ -23,6 +23,12 @@ export const ProductCard = () => {
   const [canScrollNext, setCanScrollNext] = useState(false);
   const navigate = useNavigate();
   const { cartIds, likedIds, toggleCart, toggleLike } = useCart();
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
     Promise.all(
@@ -37,6 +43,40 @@ export const ProductCard = () => {
   }, []);
 
   const product = products.find(p => String(p.id) === productId);
+
+  const changeColor = (color: string) => {
+    if (!product) {
+      return;
+    }
+
+    const variant = products.find(
+      item =>
+        item.namespaceId === product.namespaceId &&
+        item.color === color &&
+        item.capacity === selectedCapacity,
+    );
+
+    if (variant) {
+      navigate(`/product/${variant.id}`);
+    }
+  };
+
+  const changeCapacity = (capacity: string) => {
+    if (!product) {
+      return;
+    }
+
+    const variant = products.find(
+      item =>
+        item.namespaceId === product.namespaceId &&
+        item.capacity === capacity &&
+        item.color === selectedColor,
+    );
+
+    if (variant) {
+      navigate(`/product/${variant.id}`);
+    }
+  };
 
   useEffect(() => {
     if (product) {
@@ -163,7 +203,7 @@ export const ProductCard = () => {
                       className={`${style.colorsButtons} ${
                         color === selectedColor ? style.onselectColor : ''
                       }`}
-                      onClick={() => setSelectedColor(color)}
+                      onClick={() => changeColor(color)}
                     ></button>
                   ))}
                 </div>
@@ -181,7 +221,7 @@ export const ProductCard = () => {
                           ? style.onselectCapacity
                           : ''
                       }`}
-                      onClick={() => setSelectedCapacity(capacity)}
+                      onClick={() => changeCapacity(capacity)}
                     >
                       {capacity}
                     </button>
@@ -332,7 +372,11 @@ export const ProductCard = () => {
             <ul className={style.list} ref={listRef} onScroll={scrollButton}>
               {suggestedProducts.map(productes => (
                 <li className={style.item} key={productes.id}>
-                  <Link className={style.Link} to={`/product/${productes.id}`}>
+                  <Link
+                    onClick={scrollToTop}
+                    className={style.Link}
+                    to={`/product/${productes.id}`}
+                  >
                     <img
                       className={style.imgPhone}
                       src={`${import.meta.env.BASE_URL}/${productes.images[0]}`}

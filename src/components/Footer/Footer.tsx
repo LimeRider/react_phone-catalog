@@ -22,6 +22,8 @@ export const Footer = () => {
         <ul className={style.footerlist}>
           <li className={style.footerListItem}>
             <a
+              target="_blank"
+              rel="noreferrer noopener"
               className={style.footerLink}
               href={'https://github.com/LimeRider'}
             >

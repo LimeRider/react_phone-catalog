@@ -275,7 +275,7 @@ export const Phones: React.FC = () => {
                   ) : (
                     <img
                       className={style.imgLike}
-                      src={`${import.meta.env.BASE_URL}/img/heart-like.svg/`}
+                      src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
                       alt="Like"
                     />
                   )}

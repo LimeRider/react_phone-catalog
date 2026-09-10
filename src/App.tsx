@@ -13,21 +13,23 @@ import { NotFoundPage } from './components/Pages/NotFoundPage';
 
 export const App = () => (
   <>
-    <header className="header">
-      <Navbar />
-    </header>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/phones" element={<Phones />} />
-      <Route path="/tablets" element={<Tablets />} />
-      <Route path="/accessories" element={<Accessories />} />
-      <Route path="/cart" element={<AddCart />} />
-      <Route path="/favourites" element={<LikedCart />} />
-      <Route path="/product/:productId" element={<ProductCard />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
-    <footer>
-      <Footer />
-    </footer>
+    <body>
+      <header className="header">
+        <Navbar />
+      </header>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/phones" element={<Phones />} />
+        <Route path="/tablets" element={<Tablets />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/cart" element={<AddCart />} />
+        <Route path="/favourites" element={<LikedCart />} />
+        <Route path="/product/:productId" element={<ProductCard />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <footer>
+        <Footer />
+      </footer>
+    </body>
   </>
 );

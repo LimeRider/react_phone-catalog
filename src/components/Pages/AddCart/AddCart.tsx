@@ -6,10 +6,10 @@ import style from './AddCart.module.scss';
 import { Loader } from '../../Loader/Loader';
 
 export const AddCart: React.FC = () => {
-  const { cartItems, incrementCart, decrementCart, removeFromCart } = useCart();
+  const { cartItems, incrementCart, decrementCart, removeFromCart, clearCart } =
+    useCart();
   const { products, isLoading } = useAllProducts();
   const navigate = useNavigate();
-  const { clearCart } = useCart();
 
   const handleCheckout = () => {
     const confirmed = confirm(
