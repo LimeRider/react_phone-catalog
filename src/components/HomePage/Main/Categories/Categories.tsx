@@ -9,7 +9,7 @@ export const Categories = () => {
         <NavLink className={style.categoriesLink} to="/phones">
           <div className={style.categoriesCard}>
             <img
-              className={style.categoriesImg}
+              className={style.categoriesimg}
               src="/img/category-phones.png"
               alt="Category Phone"
             />
@@ -20,7 +20,7 @@ export const Categories = () => {
         <NavLink className={style.categoriesLink} to="/tablets">
           <div className={style.categoriesCard}>
             <img
-              className={style.categoriesImg}
+              className={style.categoriesimg}
               src="/img/category-tablets.png"
               alt="Category Tablets"
             />
@@ -31,7 +31,7 @@ export const Categories = () => {
         <NavLink className={style.categoriesLink} to="/accessories">
           <div className={style.categoriesCard}>
             <img
-              className={style.categoriesImg}
+              className={style.categoriesimg}
               src="/img/category-accessories.png"
               alt="Category Accessories"
             />

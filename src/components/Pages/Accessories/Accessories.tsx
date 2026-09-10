@@ -100,7 +100,7 @@ export const Accessories: React.FC = () => {
       <div className={style.accessoriess}>
         <div className={style.home}>
           <Link to="/">
-            <img className={style.linkImg} src="/img/Home.png" alt="Home" />
+            <img className={style.linkimg} src="/img/Home.png" alt="Home" />
           </Link>
           <p className={style.linkText}>&#707;</p>
           <p className={style.linkText}>Accessories</p>

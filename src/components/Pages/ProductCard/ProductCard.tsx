@@ -42,7 +42,7 @@ const allProducts = [
 export const ProductCard = () => {
   const { productId } = useParams<{ productId: string }>();
   const [products, setProducts] = useState<Product[]>([]);
-  const [productImg, setProductImg] = useState('');
+  const [productimg, setProductimg] = useState('');
   const [selectedCapacity, setSelectedCapacity] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const listRef = useRef<HTMLUListElement>(null);
@@ -65,7 +65,7 @@ export const ProductCard = () => {
     if (product) {
       setSelectedCapacity(product.capacity);
       setSelectedColor(product.color);
-      setProductImg(product.images[0]);
+      setProductimg(product.images[0]);
     }
   }, [product]);
 
@@ -118,7 +118,7 @@ export const ProductCard = () => {
       <div className={style.prouctCard}>
         <div className={style.home}>
           <Link to="/">
-            <img className={style.linkImg} src="/img/Home.png" alt="Home" />
+            <img className={style.linkimg} src="/img/Home.png" alt="Home" />
           </Link>
           <p className={style.linkText}>&#707;</p>
           <Link to={`/${product.category}`} className={style.linkText}>
@@ -141,22 +141,22 @@ export const ProductCard = () => {
 
           <div className={style.product}>
             <div className={style.productImages}>
-              <div className={style.HeroImg}>
+              <div className={style.Heroimg}>
                 <img
                   className={style.imgbutton}
-                  src={`/${productImg}`}
+                  src={`/${productimg}`}
                   alt={product.name}
                 />
               </div>
 
-              <div className={style.otherImg}>
+              <div className={style.otherimg}>
                 {product.images.map(img => (
                   <button
                     key={img}
                     type="button"
-                    onClick={() => setProductImg(img)}
-                    className={`${style.buttonImg} ${
-                      img === productImg ? style.selectImg : ''
+                    onClick={() => setProductimg(img)}
+                    className={`${style.buttonimg} ${
+                      img === productimg ? style.selectimg : ''
                     }`}
                   >
                     <img
