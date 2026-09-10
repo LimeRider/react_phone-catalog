@@ -163,13 +163,13 @@ export const HotPrice: React.FC = () => {
                   {likedIds.has(String(product.id)) ? (
                     <img
                       className={style.imgLike}
-                      src="/img/liked.png"
+                      src={`${import.meta.env.BASE_URL}/img/liked.png`}
                       alt="Liked"
                     />
                   ) : (
                     <img
                       className={style.imgLike}
-                      src="/img/heart-like.svg"
+                      src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
                       alt="Like"
                     />
                   )}

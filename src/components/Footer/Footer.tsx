@@ -15,28 +15,28 @@ export const Footer = () => {
         <Link to={'/'}>
           <img
             className={style.footerimg}
-            src="/img/Nice-Gadgets.svg"
+            src={`${import.meta.env.BASE_URL}/img/Nice-Gadgets.svg`}
             alt="Logo"
           />
         </Link>
         <ul className={style.footerlist}>
           <li className={style.footerListItem}>
-            <Link
+            <a
               className={style.footerLink}
-              to={'https://github.com/LimeRider'}
+              href={'https://github.com/LimeRider'}
             >
               Github
-            </Link>
+            </a>
           </li>
           <li className={style.footerListItem}>
-            <Link className={style.footerLink} to={'tel:+380123456789'}>
+            <a className={style.footerLink} href={'tel:+380123456789'}>
               Contacts
-            </Link>
+            </a>
           </li>
           <li className={style.footerListItem}>
-            <Link className={style.footerLink} to={'/'}>
+            <a className={style.footerLink} href={'/'}>
               rights
-            </Link>
+            </a>
           </li>
         </ul>
         <div className={style.backToTop}>

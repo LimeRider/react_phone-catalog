@@ -1,19 +1,33 @@
 import { useEffect, useState } from 'react';
 
 export interface Product {
-  id: number;
+  id: string;
+  itemId: string | number;
   category: string;
-  itemId: string;
   namespaceId: string;
   name: string;
   priceRegular: number;
   priceDiscount: number;
   screen: string;
   capacity: string;
+  capacityAvailable: string[];
+  colorsAvailable: string[];
   color: string;
   ram: string;
   year: number;
   images: string[];
+  description: Description[];
+  resolution: string;
+  processor: string;
+  camera: string;
+  zoom: string;
+  cell: string;
+  text: string[];
+}
+
+interface Description {
+  title: string;
+  text: string;
 }
 
 const allProductsUrls = [

@@ -10,7 +10,7 @@ export const Categories = () => {
           <div className={style.categoriesCard}>
             <img
               className={style.categoriesimg}
-              src="/img/category-phones.png"
+              src={`${import.meta.env.BASE_URL}/img/category-phones.png`}
               alt="Category Phone"
             />
             <p className={style.categoriesText}>Mobile phones</p>
@@ -21,7 +21,7 @@ export const Categories = () => {
           <div className={style.categoriesCard}>
             <img
               className={style.categoriesimg}
-              src="/img/category-tablets.png"
+              src={`${import.meta.env.BASE_URL}/img/category-tablets.png`}
               alt="Category Tablets"
             />
             <p className={style.categoriesText}>Tablets</p>
@@ -32,7 +32,7 @@ export const Categories = () => {
           <div className={style.categoriesCard}>
             <img
               className={style.categoriesimg}
-              src="/img/category-accessories.png"
+              src={`${import.meta.env.BASE_URL}/img/category-accessories.png`}
               alt="Category Accessories"
             />
             <p className={style.categoriesText}>Accessories</p>

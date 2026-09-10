@@ -33,7 +33,10 @@ export const Navbar: React.FC = () => {
     <nav className={styles.navbar}>
       <div className={styles.left}>
         <NavLink className={styles.logo} to="/" onClick={closeMenu}>
-          <img src="/img/Nice-Gadgets.svg" alt="Logo" />
+          <img
+            src={`${import.meta.env.BASE_URL}/img/Nice-Gadgets.svg`}
+            alt="Logo"
+          />
         </NavLink>
 
         <ul className={styles.list}>
@@ -88,13 +91,13 @@ export const Navbar: React.FC = () => {
           {isMenuOpen ? (
             <img
               className={styles.burgerIcon}
-              src="/img/closeburger.png"
+              src={`${import.meta.env.BASE_URL}/img/closeburger.png`}
               alt="closeburger"
             />
           ) : (
             <img
               className={styles.burgerIcon}
-              src="img/burger.png"
+              src={`${import.meta.env.BASE_URL}/img/burger.png`}
               alt="burger"
             />
           )}
@@ -108,7 +111,10 @@ export const Navbar: React.FC = () => {
           }
           to="/favourites"
         >
-          <img src="/img/heart-like.svg" alt="heart-like" />
+          <img
+            src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
+            alt="heart-like"
+          />
           {likedIds.size > 0 && (
             <span className={styles.count}>{likedIds.size}</span>
           )}
@@ -119,7 +125,10 @@ export const Navbar: React.FC = () => {
           }
           to="/cart"
         >
-          <img src="/img/shop-bag.svg" alt="shop-bag" />
+          <img
+            src={`${import.meta.env.BASE_URL}/img/shop-bag.svg`}
+            alt="shop-bag"
+          />
           {cartIds.size > 0 && (
             <span className={styles.count}>{cartIds.size}</span>
           )}
@@ -183,7 +192,10 @@ export const Navbar: React.FC = () => {
               className={styles.mobileIconButton}
             >
               <div className={styles.iconWrapper}>
-                <img src="/img/heart-like.svg" alt="heart-like" />
+                <img
+                  src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
+                  alt="heart-like"
+                />
                 {likedIds.size > 0 && (
                   <span className={styles.count}>{likedIds.size}</span>
                 )}
@@ -195,7 +207,10 @@ export const Navbar: React.FC = () => {
               className={styles.mobileIconButton}
             >
               <div className={styles.iconWrapper}>
-                <img src="/img/shop-bag.svg" alt="shop-bag" />
+                <img
+                  src={`${import.meta.env.BASE_URL}/img/shop-bag.svg`}
+                  alt="shop-bag"
+                />
                 {cartIds.size > 0 && (
                   <span className={styles.count}>{cartIds.size}</span>
                 )}

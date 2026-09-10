@@ -1,37 +1,10 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import style from './ProductCard.module.scss';
 import { useCart } from '../../CartContext/CartContext';
 import { ProductNotFound } from '../ProductNotFound';
-
-interface Product {
-  id: string;
-  category: string;
-  namespaceId: string;
-  name: string;
-  priceRegular: number;
-  priceDiscount: number;
-  screen: string;
-  capacity: string;
-  capacityAvailable: string[];
-  colorsAvailable: string[];
-  color: string;
-  ram: string;
-  year: number;
-  images: string[];
-  description: Description[];
-  resolution: string;
-  processor: string;
-  camera: string;
-  zoom: string;
-  cell: string;
-  text: string[];
-}
-
-interface Description {
-  title: string;
-  text: string;
-}
+import { getSuggestedProducts } from '../getSuggestedProducts';
+import { Product } from '../useAllProducts/useAllProducts';
 
 const allProducts = [
   '/api/phones.json',
@@ -69,8 +42,9 @@ export const ProductCard = () => {
     }
   }, [product]);
 
-  const sortedToNewArray = [...products].sort(
-    (a, b) => b.priceRegular - a.priceRegular,
+  const suggestedProducts = useMemo(
+    () => getSuggestedProducts(products, String(product?.id ?? '')),
+    [products, product],
   );
 
   const scrollButton = () => {
@@ -86,7 +60,7 @@ export const ProductCard = () => {
 
   useEffect(() => {
     scrollButton();
-  }, [sortedToNewArray.length]);
+  }, [suggestedProducts.length]);
 
   const scrollByCards = (direction: 1 | -1) => {
     const list = listRef.current;
@@ -118,7 +92,11 @@ export const ProductCard = () => {
       <div className={style.prouctCard}>
         <div className={style.home}>
           <Link to="/">
-            <img className={style.linkimg} src="/img/Home.png" alt="Home" />
+            <img
+              className={style.linkimg}
+              src={`${import.meta.env.BASE_URL}/img/Home.png`}
+              alt="Home"
+            />
           </Link>
           <p className={style.linkText}>&#707;</p>
           <Link to={`/${product.category}`} className={style.linkText}>
@@ -218,30 +196,34 @@ export const ProductCard = () => {
                 <div className={style.buttons}>
                   <button
                     type="button"
-                    onClick={() => toggleCart(product.id)}
+                    onClick={() => toggleCart(String(product.id))}
                     className={`${style.addButton} ${
-                      cartIds.has(product.id) ? style.addButtonClick : ''
+                      cartIds.has(String(product.id))
+                        ? style.addButtonClick
+                        : ''
                     }`}
                   >
-                    {cartIds.has(product.id) ? 'Added' : 'Add to cart'}
+                    {cartIds.has(String(product.id)) ? 'Added' : 'Add to cart'}
                   </button>
                   <button
                     type="button"
                     className={`${style.likeButton} ${
-                      likedIds.has(product.id) ? style.likeButtonClick : ''
+                      likedIds.has(String(product.id))
+                        ? style.likeButtonClick
+                        : ''
                     }`}
-                    onClick={() => toggleLike(product.id)}
+                    onClick={() => toggleLike(String(product.id))}
                   >
-                    {likedIds.has(product.id) ? (
+                    {likedIds.has(String(product.id)) ? (
                       <img
                         className={style.imgLike}
-                        src="/img/liked.png"
+                        src={`${import.meta.env.BASE_URL}/img/liked.png`}
                         alt="Liked"
                       />
                     ) : (
                       <img
                         className={style.imgLike}
-                        src="/img/heart-like.svg"
+                        src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
                         alt="Like"
                       />
                     )}
@@ -344,7 +326,7 @@ export const ProductCard = () => {
           </div>
           <div className={style.carousel}>
             <ul className={style.list} ref={listRef} onScroll={scrollButton}>
-              {sortedToNewArray.map(productes => (
+              {suggestedProducts.map(productes => (
                 <li className={style.item} key={productes.id}>
                   <img
                     className={style.imgPhone}
@@ -396,13 +378,13 @@ export const ProductCard = () => {
                       {likedIds.has(productes.id) ? (
                         <img
                           className={style.imgLike}
-                          src="/img/liked.png"
+                          src={`${import.meta.env.BASE_URL}/img/liked.png`}
                           alt="Liked"
                         />
                       ) : (
                         <img
                           className={style.imgLike}
-                          src="/img/heart-like.svg"
+                          src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
                           alt="Like"
                         />
                       )}

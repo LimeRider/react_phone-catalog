@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import style from './Tablets.module.scss';
 import { CustomSelect, SelectOption } from '../SelectOption';
 import { useCart } from '../../CartContext/CartContext';
+import { Loader } from '../../Loader/Loader';
 
 interface Product {
   id: number;
@@ -34,13 +35,73 @@ const pageSizeOptions: SelectOption[] = [
 ];
 
 export const Tablets: React.FC = () => {
-  const [sortBy, setSortBy] = useState<SelectOption>(sortOptions[0]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState<SelectOption>(pageSizeOptions[2]);
   const [products, setProducts] = useState<Product[]>([]);
   const listRef = useRef<HTMLUListElement>(null);
   const { cartIds, likedIds, toggleCart, toggleLike } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  const sortValue = searchParams.get('sort') || 'newest';
+  const pageValue = Number(searchParams.get('page')) || 1;
+  const perPageValue = searchParams.get('perPage') || 'all';
+
+  const sortBy = sortOptions.find(o => o.value === sortValue) || sortOptions[0];
+  const pageSize =
+    pageSizeOptions.find(o => o.value === perPageValue) || pageSizeOptions[3];
+
+  const updateParams = (updates: Record<string, string | null>) => {
+    const next = new URLSearchParams(searchParams);
+
+    Object.entries(updates).forEach(([key, value]) => {
+      if (value === null) {
+        next.delete(key);
+      } else {
+        next.set(key, value);
+      }
+    });
+
+    setSearchParams(next);
+  };
+
+  const handleSortChange = (option: SelectOption) => {
+    updateParams({
+      sort: option.value === 'newest' ? null : option.value,
+      page: null,
+    });
+  };
+
+  const handlePageSizeChange = (option: SelectOption) => {
+    updateParams({
+      perPage: option.value === 'all' ? null : option.value,
+      page: null,
+    });
+  };
+
+  const handlePageChange = (page: number) => {
+    updateParams({ page: page === 1 ? null : String(page) });
+  };
+
+  const loadProducts = () => {
+    setIsLoading(true);
+    setHasError(false);
+
+    fetch('/api/phones.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load');
+        }
+
+        return response.json();
+      })
+      .then(setProducts)
+      .catch(() => setHasError(true))
+      .finally(() => setIsLoading(false));
+  };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
   useEffect(() => {
     fetch('/api/tablets.json')
       .then(response => response.json())
@@ -80,12 +141,20 @@ export const Tablets: React.FC = () => {
       return sortedProducts;
     }
 
-    const start = (currentPage - 1) * perPage;
+    const start = (pageValue - 1) * perPage;
 
     return sortedProducts.slice(start, start + perPage);
-  }, [sortedProducts, pageSize, currentPage, perPage]);
+  }, [sortedProducts, pageSize, pageValue, perPage]);
 
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const setCurrentPage = (update: (current: number) => number) => {
+    const current = Number(searchParams.get('page')) || 1;
+    const nextPage = update(current);
+
+    updateParams({
+      page: nextPage === 1 ? null : String(nextPage),
+    });
+  };
 
   const handlePrevPage = () => {
     setCurrentPage(current => Math.max(current - 1, 1));
@@ -100,7 +169,11 @@ export const Tablets: React.FC = () => {
       <div className={style.tablets}>
         <div className={style.home}>
           <Link to="/">
-            <img className={style.linkimg} src="/img/Home.png" alt="Home" />
+            <img
+              className={style.linkimg}
+              src={`${import.meta.env.BASE_URL}/img/Home.png`}
+              alt="Home"
+            />
           </Link>
           <p className={style.linkText}>&#707;</p>
           <p className={style.linkText}>Tablets</p>
@@ -115,7 +188,7 @@ export const Tablets: React.FC = () => {
             <CustomSelect
               className={style.selectForm}
               value={sortBy}
-              onChange={setSortBy}
+              onChange={handleSortChange}
               options={sortOptions}
             />
           </div>
@@ -125,18 +198,32 @@ export const Tablets: React.FC = () => {
             <CustomSelect
               className={style.selectFormPage}
               value={pageSize}
-              onChange={setPageSize}
+              onChange={handlePageSizeChange}
               options={pageSizeOptions}
             />
           </div>
         </div>
+        {isLoading && <Loader />}
+
+        {hasError && (
+          <div className={style.errorBlock}>
+            <p>Something went wrong</p>
+            <button type="button" onClick={loadProducts}>
+              Reload
+            </button>
+          </div>
+        )}
+
+        {!isLoading && !hasError && products.length === 0 && (
+          <p className={style.empty}>There are no phones yet</p>
+        )}
         <ul className={style.list} ref={listRef}>
           {visibleProducts.map(product => (
             <li className={style.item} key={product.id}>
               <Link className={style.Link} to={`/product/${product.id}`}>
                 <img
                   className={style.imgtablet}
-                  src={product.images[1]}
+                  src={product.images[0]}
                   alt={product.name}
                 />
               </Link>
@@ -186,13 +273,13 @@ export const Tablets: React.FC = () => {
                   {likedIds.has(String(product.id)) ? (
                     <img
                       className={style.imgLike}
-                      src="/img/liked.png"
+                      src={`${import.meta.env.BASE_URL}/img/liked.png`}
                       alt="Liked"
                     />
                   ) : (
                     <img
                       className={style.imgLike}
-                      src="/img/heart-like.svg"
+                      src={`${import.meta.env.BASE_URL}/img/heart-like.svg`}
                       alt="Like"
                     />
                   )}
@@ -208,7 +295,7 @@ export const Tablets: React.FC = () => {
                 type="button"
                 className={style.arrowButton}
                 onClick={handlePrevPage}
-                disabled={currentPage === 1}
+                disabled={pageValue === 1}
                 aria-label="Previous page"
               >
                 ‹
@@ -220,9 +307,9 @@ export const Tablets: React.FC = () => {
                 <button
                   type="button"
                   className={`${style.pageButton} ${
-                    page === currentPage ? style.pageButtonActive : ''
+                    page === pageValue ? style.pageButtonActive : ''
                   }`}
-                  onClick={() => setCurrentPage(page)}
+                  onClick={() => handlePageChange(page)}
                 >
                   {page}
                 </button>
@@ -234,7 +321,7 @@ export const Tablets: React.FC = () => {
                 type="button"
                 className={style.arrowButton}
                 onClick={handleNextPage}
-                disabled={currentPage === totalPages}
+                disabled={pageValue === totalPages}
                 aria-label="Next page"
               >
                 ›

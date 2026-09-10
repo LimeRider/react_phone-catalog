@@ -8,6 +8,17 @@ export const AddCart: React.FC = () => {
   const { cartItems, incrementCart, decrementCart, removeFromCart } = useCart();
   const { products, isLoading } = useAllProducts();
   const navigate = useNavigate();
+  const { clearCart } = useCart();
+
+  const handleCheckout = () => {
+    const confirmed = confirm(
+      'Checkout is not implemented yet. Do you want to clear the Cart?',
+    );
+
+    if (confirmed) {
+      clearCart();
+    }
+  };
 
   const cartProducts = useMemo(
     () =>
@@ -105,7 +116,11 @@ export const AddCart: React.FC = () => {
             <div className={style.summary}>
               <p className={style.total}>${totalPrice}</p>
               <p className={style.count}>Total for {totalCount} items</p>
-              <button type="button" className={style.checkoutButton}>
+              <button
+                type="button"
+                className={style.checkoutButton}
+                onClick={handleCheckout}
+              >
                 Checkout
               </button>
             </div>

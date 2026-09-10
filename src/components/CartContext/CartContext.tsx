@@ -9,6 +9,7 @@ type CartContextType = {
   decrementCart: (id: string) => void;
   removeFromCart: (id: string) => void;
   toggleLike: (id: string) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -45,6 +46,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const [likedIds, setLikedIds] = useState<Set<string>>(() =>
     loadLikedFromStorage(),
   );
+  const clearCart = () => {
+    setCartItems({});
+  };
 
   useEffect(() => {
     localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
@@ -128,6 +132,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         decrementCart,
         removeFromCart,
         toggleLike,
+        clearCart,
       }}
     >
       {children}
