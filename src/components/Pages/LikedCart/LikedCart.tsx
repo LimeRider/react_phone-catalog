@@ -3,6 +3,7 @@ import { useMemo, useRef } from 'react';
 import { useCart } from '../../CartContext/CartContext';
 import { useAllProducts } from '../useAllProducts/useAllProducts';
 import style from './LikedCart.module.scss';
+import { Loader } from '../../Loader/Loader';
 
 export const LikedCart: React.FC = () => {
   const { likedIds, toggleLike, cartIds, toggleCart } = useCart();
@@ -15,7 +16,7 @@ export const LikedCart: React.FC = () => {
   );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (
@@ -45,7 +46,7 @@ export const LikedCart: React.FC = () => {
                 <Link className={style.Link} to={`/product/${product.id}`}>
                   <img
                     className={style.img}
-                    src={product.images[0]}
+                    src={`${import.meta.env.BASE_URL}/${product.images[0]}`}
                     alt={product.name}
                   />
                 </Link>

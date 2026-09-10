@@ -26,7 +26,11 @@ export const ProductCard = () => {
 
   useEffect(() => {
     Promise.all(
-      allProducts.map(url => fetch(url).then(response => response.json())),
+      allProducts.map(url =>
+        fetch(`${import.meta.env.BASE_URL}${url}`).then(response =>
+          response.json(),
+        ),
+      ),
     )
       .then(productArrays => setProducts(productArrays.flat()))
       .catch(() => setProducts([]));
@@ -122,7 +126,7 @@ export const ProductCard = () => {
               <div className={style.Heroimg}>
                 <img
                   className={style.imgbutton}
-                  src={`/${productimg}`}
+                  src={`${import.meta.env.BASE_URL}/${productimg}`}
                   alt={product.name}
                 />
               </div>
@@ -139,7 +143,7 @@ export const ProductCard = () => {
                   >
                     <img
                       className={style.imgbutton}
-                      src={`/${img}`}
+                      src={`${import.meta.env.BASE_URL}/${img}`}
                       alt={product.name}
                     />
                   </button>
@@ -328,12 +332,14 @@ export const ProductCard = () => {
             <ul className={style.list} ref={listRef} onScroll={scrollButton}>
               {suggestedProducts.map(productes => (
                 <li className={style.item} key={productes.id}>
-                  <img
-                    className={style.imgPhone}
-                    src={productes.images[0]}
-                    alt={productes.name}
-                  />
-                  <p className={style.name}>{productes.name}</p>
+                  <Link className={style.Link} to={`/product/${productes.id}`}>
+                    <img
+                      className={style.imgPhone}
+                      src={`${import.meta.env.BASE_URL}/${productes.images[0]}`}
+                      alt={productes.name}
+                    />
+                    <p className={style.name}>{productes.name}</p>
+                  </Link>
                   <p className={style.price}>
                     ${productes.priceDiscount}{' '}
                     <span className={style.fullprice}>

@@ -44,7 +44,11 @@ export const useAllProducts = () => {
     setIsLoading(true);
 
     Promise.all(
-      allProductsUrls.map(url => fetch(url).then(response => response.json())),
+      allProductsUrls.map(url =>
+        fetch(`${import.meta.env.BASE_URL}${url}`).then(response =>
+          response.json(),
+        ),
+      ),
     )
       .then(productArrays => setProducts(productArrays.flat()))
       .catch(() => setProducts([]))

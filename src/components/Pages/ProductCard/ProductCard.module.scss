@@ -41,6 +41,15 @@ main {
   }
 }
 
+.Link {
+  margin: 0;
+  padding: 0;
+  background-color: #161827;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
 .Back {
   font-family: Mont, sans-serif;
   font-weight: 700;
@@ -100,6 +109,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  order: 1;
 
   @include mobile {
     flex-direction: row;
@@ -139,6 +149,7 @@ main {
   height: 464px;
   width: 464px;
   transition: transform 0.3s ease;
+  order: 2;
 
   &:hover {
     transform: scale(1.1);

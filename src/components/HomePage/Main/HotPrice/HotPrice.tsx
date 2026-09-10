@@ -31,9 +31,18 @@ export const HotPrice: React.FC = () => {
   const { cartIds, likedIds, toggleCart, toggleLike } = useCart();
 
   useEffect(() => {
+    const baseUrl = import.meta.env.BASE_URL;
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+
     Promise.all(
       allProducts.map(productUrl =>
-        fetch(productUrl).then(response => response.json()),
+        fetch(`${cleanBase}${productUrl}`).then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          return response.json();
+        }),
       ),
     )
       .then(data => {
@@ -116,7 +125,7 @@ export const HotPrice: React.FC = () => {
               <Link className={style.Link} to={`/product/${product.id}`}>
                 <img
                   className={style.imgPhone}
-                  src={product.images[0]}
+                  src={`${import.meta.env.BASE_URL}/${product.images[0]}`}
                   alt={product.name}
                 />
                 <p className={style.name}>{product.name}</p>

@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { useCart } from '../../CartContext/CartContext';
 import { useAllProducts } from '../useAllProducts/useAllProducts';
 import style from './AddCart.module.scss';
+import { Loader } from '../../Loader/Loader';
 
 export const AddCart: React.FC = () => {
   const { cartItems, incrementCart, decrementCart, removeFromCart } = useCart();
@@ -42,7 +43,7 @@ export const AddCart: React.FC = () => {
   );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (
@@ -76,7 +77,7 @@ export const AddCart: React.FC = () => {
                   <Link className={style.Link} to={`/product/${product.id}`}>
                     <img
                       className={style.image}
-                      src={`/${product.images[0]}`}
+                      src={`${import.meta.env.BASE_URL}/${product.images[0]}`}
                       alt={product.name}
                     />
                   </Link>

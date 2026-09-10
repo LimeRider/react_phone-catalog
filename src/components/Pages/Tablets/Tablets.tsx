@@ -86,7 +86,7 @@ export const Tablets: React.FC = () => {
     setIsLoading(true);
     setHasError(false);
 
-    fetch('/api/phones.json')
+    fetch(`${import.meta.env.BASE_URL}/api/tablets.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load');
@@ -101,12 +101,6 @@ export const Tablets: React.FC = () => {
 
   useEffect(() => {
     loadProducts();
-  }, []);
-  useEffect(() => {
-    fetch('/api/tablets.json')
-      .then(response => response.json())
-      .then(setProducts)
-      .catch(() => setProducts([]));
   }, []);
 
   const sortedProducts = useMemo(() => {
@@ -223,7 +217,7 @@ export const Tablets: React.FC = () => {
               <Link className={style.Link} to={`/product/${product.id}`}>
                 <img
                   className={style.imgtablet}
-                  src={product.images[0]}
+                  src={`${import.meta.env.BASE_URL}/${product.images[0]}`}
                   alt={product.name}
                 />
               </Link>

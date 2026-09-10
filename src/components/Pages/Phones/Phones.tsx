@@ -87,7 +87,7 @@ export const Phones: React.FC = () => {
     setIsLoading(true);
     setHasError(false);
 
-    fetch('/api/phones.json')
+    fetch(`${import.meta.env.BASE_URL}/api/phones.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load');
@@ -102,13 +102,6 @@ export const Phones: React.FC = () => {
 
   useEffect(() => {
     loadProducts();
-  }, []);
-
-  useEffect(() => {
-    fetch('/api/phones.json')
-      .then(response => response.json())
-      .then(setProducts)
-      .catch(() => setProducts([]));
   }, []);
 
   const sortedProducts = useMemo(() => {
@@ -174,7 +167,7 @@ export const Phones: React.FC = () => {
           <Link to="/">
             <img
               className={style.linkimg}
-              src={`${import.meta.env.BASE_URL}/imgHome.png/`}
+              src={`${import.meta.env.BASE_URL}/img/Home.png`}
               alt="Home"
             />
           </Link>
@@ -226,7 +219,7 @@ export const Phones: React.FC = () => {
               <Link className={style.Link} to={`/product/${product.id}`}>
                 <img
                   className={style.imgPhone}
-                  src={product.images[1]}
+                  src={`${import.meta.env.BASE_URL}/${product.images[0]}`}
                   alt={product.name}
                 />
               </Link>
@@ -282,7 +275,7 @@ export const Phones: React.FC = () => {
                   ) : (
                     <img
                       className={style.imgLike}
-                      src={`${import.meta.env.BASE_URL}/imgheart-like.svg/`}
+                      src={`${import.meta.env.BASE_URL}/img/heart-like.svg/`}
                       alt="Like"
                     />
                   )}
