@@ -128,9 +128,9 @@ main {
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   list-style: none;
-  margin-bottom: 80px;
   margin: 0;
   padding: 0;
+  margin-bottom: 80px;
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
