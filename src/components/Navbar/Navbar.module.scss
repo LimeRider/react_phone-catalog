@@ -1,13 +1,15 @@
 @use '../../style/breakpoints.scss' as *;
 
 .navbar {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   height: 100%;
   padding-left: 24px;
   border-bottom: 1px solid #323542;
-  position: relative;
 
   @include mobile {
     padding-left: 16px;
@@ -21,17 +23,20 @@
 }
 
 .burger {
+  cursor: pointer;
+
   display: none;
   flex-direction: column;
-  justify-content: center;
   gap: 5px;
+  justify-content: center;
+
   width: 24px;
   height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
   margin-right: 16px;
   padding: 0;
+  border: none;
+
+  background: transparent;
 
   @include mobile {
     display: flex;
@@ -40,9 +45,10 @@
 
 .burgerIcon {
   position: absolute;
+  right: 20px;
+
   width: 16px;
   height: 16px;
-  right: 20px;
   border-left: 1px solid #323542;
 }
 
@@ -70,12 +76,14 @@
 
 .list {
   display: flex;
+  gap: 64px;
   align-items: center;
+
   height: 100%;
-  list-style: none;
   margin: 0;
   padding: 0;
-  gap: 64px;
+
+  list-style: none;
 
   @include tablet {
     gap: 24px;
@@ -91,15 +99,18 @@
 }
 
 .link {
+  position: relative;
+
   display: flex;
   align-items: center;
+
   height: 100%;
+
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 4%;
   color: #75767f;
   text-decoration: none;
-  position: relative;
+  letter-spacing: 4%;
 
   &:hover {
     color: #f1f2f9;
@@ -111,11 +122,14 @@
 
   &::after {
     content: '';
+
     position: absolute;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+
     height: 2px;
+
     background-color: #f1f2f9;
   }
 }
@@ -131,14 +145,17 @@
 }
 
 .iconButton {
-  text-decoration: none;
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 64px;
   height: 100%;
   border-left: 1px solid #323542;
-  position: relative;
+
+  text-decoration: none;
 
   img {
     width: 16px;
@@ -158,16 +175,19 @@
   position: absolute;
   top: 18px;
   right: 19px;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 14px;
-  text-align: center;
-  color: #f1f2f9;
-  border-radius: 50%;
+
   width: 13px;
   height: 13px;
   border: 1px solid #0f1121;
+  border-radius: 50%;
+
+  font-family: Mont, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #f1f2f9;
+  text-align: center;
+
   background-color: #eb5757;
 }
 
@@ -175,14 +195,17 @@
   display: none;
 
   @include mobile {
+    position: fixed;
+    z-index: 99;
+    inset: 64px 0 0;
+
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    position: fixed;
-    inset: 64px 0 0;
-    background-color: #0f1121;
-    z-index: 99;
+
     padding-top: 24px;
-    overflow-y: auto;
+
+    background-color: #0f1121;
   }
 }
 
@@ -190,32 +213,39 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  list-style: none;
-  padding: 0;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  list-style: none;
 }
 
 .mobileLink {
   display: block;
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #75767f;
-  text-decoration: none;
+
   padding: 8px 0;
 
+  font-family: Mont, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #75767f;
+  text-decoration: none;
+  letter-spacing: 1px;
+
   &.active {
-    color: #f1f2f9;
     position: relative;
+    color: #f1f2f9;
 
     &::after {
       content: '';
+
       position: absolute;
-      left: 0;
       right: 0;
+      left: 0;
+
       height: 2px;
+
       background-color: #f1f2f9;
     }
   }
@@ -227,15 +257,18 @@
 }
 
 .mobileIconButton {
+  position: relative;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  width: 100%;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
   height: 64px;
   border: 1px solid #323542;
-  position: relative;
+
+  text-decoration: none;
 
   img {
     width: 20px;
@@ -250,18 +283,21 @@
 
   .count {
     position: absolute;
-    right: -4px;
     top: -5px;
-    font-family: Mont, sans-serif;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 14px;
-    text-align: center;
-    color: #f1f2f9;
-    border-radius: 50%;
+    right: -4px;
+
     width: 13px;
     height: 13px;
     border: 1px solid #0f1121;
+    border-radius: 50%;
+
+    font-family: Mont, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #f1f2f9;
+    text-align: center;
+
     background-color: #eb5757;
   }
 }

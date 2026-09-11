@@ -5,16 +5,19 @@
 }
 
 .control {
-  width: 100%;
-  height: 40px;
+  cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
+  height: 40px;
   padding: 0 16px;
-  background-color: #323542;
   border: 1px solid #3b3e4a;
   border-radius: 0;
-  cursor: pointer;
+
+  background-color: #323542;
 }
 
 .controlOpen {
@@ -23,9 +26,10 @@
 
 .controlLabel {
   font-family: Mont, sans-serif;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   color: #f1f2f9;
+
   background-color: #323542;
 
   @include mobile {
@@ -34,11 +38,13 @@
 }
 
 .arrow {
-  color: #75767f;
   font-size: 16px;
-  transition: transform 150ms ease;
   line-height: 1;
+  color: #75767f;
+
   background-color: #323542;
+
+  transition: transform 150ms ease;
 }
 
 .arrowUp {
@@ -47,34 +53,41 @@
 
 .menu {
   position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
   z-index: 10;
-  list-style: none;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+
+  overflow-y: auto;
+
+  max-height: 260px;
   margin: 0;
   padding: 0;
-  background-color: #323542;
   border: 1px solid #3b3e4a;
-  max-height: 260px;
-  overflow-y: auto;
+
+  list-style: none;
+
+  background-color: #323542;
 }
 
 .option {
-  width: 100%;
-  text-align: left;
-  padding: 12px 16px;
-  background-color: transparent;
-  border: none;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: #75767f;
   cursor: pointer;
 
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #75767f;
+  text-align: left;
+
+  background-color: transparent;
+
   &:hover {
-    background-color: #3b3e4a;
     color: #f1f2f9;
+    background-color: #3b3e4a;
   }
 
   @include mobile {
@@ -84,6 +97,6 @@
 }
 
 .optionSelected {
-  background-color: #3b3e4a;
   color: #f1f2f9;
+  background-color: #3b3e4a;
 }

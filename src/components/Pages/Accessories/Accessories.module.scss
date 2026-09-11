@@ -16,13 +16,14 @@ main {
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 40px;
+
   margin-top: 88px;
+  margin-bottom: 40px;
 
   @include mobile {
+    gap: 8px;
     margin-top: 80px;
     margin-bottom: 24px;
-    gap: 8px;
   }
 }
 
@@ -30,19 +31,20 @@ main {
   font-family: Mont, sans-serif;
   font-weight: 700;
   line-height: 100%;
-  letter-spacing: 0%;
   color: #4a4d58;
+  letter-spacing: 0%;
 }
 
 .accessoriessTitle {
+  margin-bottom: 16px;
+
   font-family: Mont, sans-serif;
+  font-size: 48px;
   font-weight: 800;
   font-style: Bold;
-  font-size: 48px;
   line-height: 56px;
-  letter-spacing: -1%;
   color: #f1f2f9;
-  margin-bottom: 16px;
+  letter-spacing: -1%;
 
   @include tablet {
     font-size: 32px;
@@ -50,20 +52,21 @@ main {
   }
 
   @include mobile {
+    margin-bottom: 8px;
     font-size: 24px;
     line-height: 31px;
-    margin-bottom: 8px;
   }
 }
 
 .accessoriessModel {
-  font-family: Mont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  color: #75767f;
   margin-bottom: 40px;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #75767f;
+  letter-spacing: 0%;
 
   @include mobile {
     margin-bottom: 24px;
@@ -83,13 +86,14 @@ main {
 }
 
 .sortName {
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #75767f;
   margin-bottom: 4px;
+
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #75767f;
+  letter-spacing: 0%;
 }
 
 .selectForm {
@@ -111,15 +115,16 @@ main {
 
 .selectOption {
   font-family: Mont, sans-serif;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   line-height: 21px;
   color: #75767f;
+
   background-color: #75767f;
 
   &:hover {
-    background-color: #323542;
     color: #f1f2f9;
+    background-color: #323542;
   }
 }
 
@@ -127,10 +132,12 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  list-style: none;
+
   margin: 0;
-  padding: 0;
   margin-bottom: 80px;
+  padding: 0;
+
+  list-style: none;
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
@@ -144,13 +151,15 @@ main {
 }
 
 .item {
-  flex: 0 0 calc((100% - 2 * 16px) / 4);
-  height: 100%;
   display: flex;
+  flex: 0 0 calc((100% - 2 * 16px) / 4);
   flex-direction: column;
-  border: 1px solid #161827;
-  background-color: #161827;
+
+  height: 100%;
   padding: 32px;
+  border: 1px solid #161827;
+
+  background-color: #161827;
 
   @include tablet {
     padding: 20px;
@@ -165,7 +174,9 @@ main {
   width: 230px;
   height: 230px;
   margin-bottom: 24px;
+
   background-color: #161827;
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -176,36 +187,41 @@ main {
     width: 100%;
     height: auto;
     max-height: 220px;
-    object-fit: contain;
     margin-bottom: 16px;
+
+    object-fit: contain;
   }
 
   @include mobile {
     width: 100%;
     height: auto;
     max-height: 160px;
-    object-fit: contain;
     margin-bottom: 12px;
+
+    object-fit: contain;
   }
 }
 
 .Link {
   margin: 0;
   padding: 0;
-  background-color: #161827;
   text-decoration: none;
+  background-color: #161827;
 }
 
 .name {
-  font-family: Mont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  color: #f1f2f9;
   width: 208px;
   margin-bottom: 8px;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #f1f2f9;
+  letter-spacing: 0%;
+
   background-color: #161827;
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -224,26 +240,29 @@ main {
 }
 
 .price {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 140%;
-  letter-spacing: 0%;
-  color: #f1f2f9;
   margin-bottom: 16px;
+
+  font-family: Mont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #f1f2f9;
+  letter-spacing: 0%;
+
   background-color: #161827;
 
   @include mobile {
-    font-size: 16px;
     margin-bottom: 8px;
+    font-size: 16px;
   }
 }
 
 .fullprice {
-  font-weight: 600;
   font-size: 22px;
+  font-weight: 600;
   line-height: 100%;
   text-decoration: line-through;
+
   background-color: #161827;
 
   @include mobile {
@@ -254,21 +273,24 @@ main {
 .characteristics {
   display: flex;
   justify-content: space-between;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #75767f;
+
   margin-bottom: 16px;
-  background-color: #161827;
-  border-top: 1px solid #3b3e4a;
   padding-top: 16px;
+  border-top: 1px solid #3b3e4a;
+
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #75767f;
+  letter-spacing: 0%;
+
+  background-color: #161827;
 
   @include mobile {
-    font-size: 10px;
-    padding-top: 10px;
     margin-bottom: 10px;
+    padding-top: 10px;
+    font-size: 10px;
   }
 }
 
@@ -299,8 +321,8 @@ main {
 }
 
 .characteristicItemText {
-  background-color: #161827;
   color: #f1f2f9;
+  background-color: #161827;
 }
 
 .buttons {
@@ -313,18 +335,22 @@ main {
 }
 
 .addButton {
-  flex: 1;
-  padding: 8px;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  text-align: center;
-  border: none;
-  background: #905bff;
-  color: #f1f2f9;
   cursor: pointer;
+
+  flex: 1;
+
+  padding: 8px;
+  border: none;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #f1f2f9;
+  text-align: center;
+  letter-spacing: 0%;
+
+  background: #905bff;
 
   &:hover {
     background-color: #a378ff;
@@ -345,14 +371,17 @@ main {
 }
 
 .likeButton {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #323542;
-  background: #323542;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid #323542;
+
+  background: #323542;
 
   &:hover {
     background-color: #4a4d58;
@@ -365,8 +394,8 @@ main {
 }
 
 .likeButtonClick {
-  background-color: transparent;
   border: 1px solid #323542;
+  background-color: transparent;
 }
 
 .imgLike {
@@ -380,29 +409,34 @@ main {
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  list-style: none;
+  justify-content: center;
+
   margin: 40px 0;
   padding: 0;
-  justify-content: center;
-  flex-wrap: wrap;
+
+  list-style: none;
 
   @include mobile {
-    margin: 24px 0;
     gap: 6px;
+    margin: 24px 0;
   }
 }
 
 .pageButton {
+  cursor: pointer;
+
   width: 32px;
   height: 32px;
   border: 1px solid #3b3e4a;
-  background-color: #161827;
-  color: #f1f2f9;
+
   font-family: Mont, sans-serif;
-  font-weight: 700;
   font-size: 14px;
-  cursor: pointer;
+  font-weight: 700;
+  color: #f1f2f9;
+
+  background-color: #161827;
 
   &:hover {
     border-color: #905bff;
@@ -417,23 +451,26 @@ main {
 }
 
 .pageButtonActive {
-  background-color: #905bff;
   border-color: #905bff;
   color: #fff;
+  background-color: #905bff;
 }
 
 .arrowButton {
+  cursor: pointer;
+
   width: 32px;
   height: 32px;
   border: 1px solid #3b3e4a;
-  background-color: #323542;
-  color: #f1f2f9;
+
   font-size: 16px;
-  cursor: pointer;
+  color: #f1f2f9;
+
+  background-color: #323542;
 
   &:disabled {
-    opacity: 0.3;
     cursor: not-allowed;
+    opacity: 0.3;
   }
 
   &:hover:not(:disabled) {

@@ -1,10 +1,10 @@
 @use '../../../../style/breakpoints.scss' as *;
 
 .pageWrapper {
-  width: 100%;
-  padding: 0 16px;
   box-sizing: border-box;
+  width: 100%;
   margin-bottom: 80px;
+  padding: 0 16px;
 
   @include mobile {
     margin-bottom: 40px;
@@ -16,12 +16,12 @@
 }
 
 .contentContainer {
-  max-width: 1136px;
-  margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  max-width: 1136px;
+  margin: 0 auto;
   margin-top: 88px;
 
   @include mobile {
@@ -30,24 +30,25 @@
 }
 
 .heroTitle {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-style: Bold;
-  font-size: 48px;
-  line-height: 56px;
-  letter-spacing: -1%;
-  color: #f1f2f9;
   margin-bottom: 56px;
 
+  font-family: Mont, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  font-style: Bold;
+  line-height: 56px;
+  color: #f1f2f9;
+  letter-spacing: -1%;
+
   @include tablet {
+    margin-bottom: 32px;
     font-size: 48px;
     line-height: 56px;
-    margin-bottom: 32px;
   }
 
   @include mobile {
+    margin-bottom: 24px;
     font-size: 24px;
     line-height: 31px;
-    margin-bottom: 24px;
   }
 }

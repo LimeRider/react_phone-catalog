@@ -1,18 +1,22 @@
 @use '../../../style//breakpoints.scss' as *;
 
 .back {
+  cursor: pointer;
+
   display: flex;
-  align-items: center;
   gap: 4px;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 100%;
-  color: #f1f2f9;
+  align-items: center;
+
+  margin-top: 88px;
   margin-bottom: 16px;
   border: none;
-  cursor: pointer;
-  margin-top: 88px;
+
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #f1f2f9;
+
   background: transparent;
 
   @include mobile {
@@ -21,31 +25,32 @@
 }
 
 .title {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-style: Bold;
-  font-size: 48px;
-  line-height: 56px;
-  letter-spacing: -1%;
-  color: #f1f2f9;
   margin-bottom: 32px;
 
+  font-family: Mont, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  font-style: Bold;
+  line-height: 56px;
+  color: #f1f2f9;
+  letter-spacing: -1%;
+
   @include mobile {
+    margin-bottom: 20px;
     font-size: 24px;
     line-height: 31px;
-    margin-bottom: 20px;
   }
 }
 
 .empty {
-  color: #75767f;
   font-size: 16px;
+  color: #75767f;
 }
 
 .content {
   display: flex;
-  align-items: flex-start;
   gap: 24px;
+  align-items: flex-start;
 
   @include tablet {
     flex-direction: column;
@@ -59,22 +64,24 @@
 
 .list {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 16px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex: 1;
+
   max-width: 640px;
+  margin: 0;
   margin-bottom: 80px;
+  padding: 0;
+
+  list-style: none;
 
   @include tablet {
     width: 100%;
   }
 
   @include mobile {
-    width: 100%;
     gap: 12px;
+    width: 100%;
     margin-bottom: 24px;
   }
 }
@@ -82,9 +89,11 @@
 .item {
   display: grid;
   grid-template-columns: auto 66px 1fr auto auto;
-  align-items: center;
   gap: 24px;
+  align-items: center;
+
   padding: 24px;
+
   background-color: #161827;
 
   @include mobile {
@@ -96,13 +105,16 @@
 }
 
 .removeButton {
+  cursor: pointer;
+
   width: 24px;
   height: 24px;
-  background: transparent;
-  color: #4a4d58;
-  font-size: 20px;
-  cursor: pointer;
   border: none;
+
+  font-size: 20px;
+  color: #4a4d58;
+
+  background: transparent;
 
   &:hover {
     color: #905bff;
@@ -112,8 +124,10 @@
 .image {
   width: 66px;
   height: 66px;
+
   object-fit: contain;
   background-color: #161827;
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -128,12 +142,14 @@
 
 .name {
   font-family: Mont, sans-serif;
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 600;
   line-height: 21px;
-  letter-spacing: 0%;
   color: #f1f2f9;
+  letter-spacing: 0%;
+
   background-color: #161827;
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -147,8 +163,8 @@
 
 .quantity {
   display: flex;
-  align-items: center;
   gap: 16px;
+  align-items: center;
   background-color: #161827;
 
   @include mobile {
@@ -159,25 +175,29 @@
 }
 
 .quantityButton {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #3b3e4a;
-  background: #323542;
-  color: #f1f2f9;
   cursor: pointer;
-  font-size: 14px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border: 1px solid #3b3e4a;
+
+  font-size: 14px;
+  color: #f1f2f9;
+
+  background: #323542;
 
   &:hover {
     background: #4a4d58;
   }
 
   &:disabled {
-    background-color: #161827;
-    color: #4a4d58;
     cursor: default;
+    color: #4a4d58;
+    background-color: #161827;
   }
 
   @include mobile {
@@ -188,24 +208,27 @@
 
 .quantityValue {
   font-family: Mont, sans-serif;
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 600;
   line-height: 21px;
-  letter-spacing: 0%;
-  text-align: center;
   color: #f1f2f9;
+  text-align: center;
+  letter-spacing: 0%;
+
   background-color: #161827;
 }
 
 .price {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 140%;
-  text-align: right;
-  color: #f1f2f9;
-  background-color: #161827;
   min-width: 60px;
+
+  font-family: Mont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #f1f2f9;
+  text-align: right;
+
+  background-color: #161827;
 
   @include mobile {
     grid-column: 3 / 5;
@@ -218,8 +241,10 @@
   width: 368px;
   padding: 24px;
   border: 1px solid #3b3e4a;
-  background-color: transparent;
+
   text-align: center;
+
+  background-color: transparent;
 
   @include tablet {
     width: 100%;
@@ -228,19 +253,20 @@
 
   @include mobile {
     width: 100%;
-    padding: 16px;
     margin-bottom: 56px;
+    padding: 16px;
   }
 }
 
 .total {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 41px;
-  letter-spacing: -1%;
-  color: #f1f2f9;
   margin-bottom: 4px;
+
+  font-family: Mont, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  color: #f1f2f9;
+  letter-spacing: -1%;
 
   @include mobile {
     font-size: 26px;
@@ -248,16 +274,17 @@
 }
 
 .count {
-  font-family: Mont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  text-align: center;
-  color: #75767f;
   margin-bottom: 24px;
-  border-bottom: 1px solid #3b3e4a;
   padding-bottom: 25px;
+  border-bottom: 1px solid #3b3e4a;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #75767f;
+  text-align: center;
+  letter-spacing: 0%;
 
   @include mobile {
     margin-bottom: 16px;
@@ -266,18 +293,21 @@
 }
 
 .checkoutButton {
+  cursor: pointer;
+
   width: 100%;
   padding: 13px;
-  background-color: #905bff;
   border: none;
-  color: #f1f2f9;
+
   font-family: Mont, sans-serif;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   line-height: 21px;
-  letter-spacing: 0%;
+  color: #f1f2f9;
   text-align: center;
-  cursor: pointer;
+  letter-spacing: 0%;
+
+  background-color: #905bff;
 
   &:hover {
     background-color: #a378ff;
@@ -287,6 +317,6 @@
 .Link {
   margin: 0;
   padding: 0;
-  background-color: #161827;
   text-decoration: none;
+  background-color: #161827;
 }

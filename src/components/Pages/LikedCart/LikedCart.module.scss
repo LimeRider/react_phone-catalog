@@ -16,8 +16,9 @@ main {
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 40px;
+
   margin-top: 88px;
+  margin-bottom: 40px;
 
   @include mobile {
     margin-top: 80px;
@@ -32,14 +33,15 @@ main {
 }
 
 .title {
+  margin-bottom: 8px;
+
   font-family: Mont, sans-serif;
+  font-size: 48px;
   font-weight: 800;
   font-style: Bold;
-  font-size: 48px;
   line-height: 56px;
-  letter-spacing: -1%;
   color: #f1f2f9;
-  margin-bottom: 8px;
+  letter-spacing: -1%;
 
   @include mobile {
     font-size: 24px;
@@ -48,13 +50,14 @@ main {
 }
 
 .count {
-  font-family: Mont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  color: #75767f;
   margin-bottom: 40px;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #75767f;
+  letter-spacing: 0%;
 
   @include mobile {
     margin-bottom: 20px;
@@ -62,17 +65,19 @@ main {
 }
 
 .empty {
-  color: #75767f;
   font-size: 16px;
+  color: #75767f;
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  list-style: none;
+
   margin-bottom: 80px;
   padding: 0;
+
+  list-style: none;
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
@@ -87,13 +92,15 @@ main {
 }
 
 .item {
-  flex: 0 0 calc((100% - 2 * 16px) / 4);
-  height: 100%;
   display: flex;
+  flex: 0 0 calc((100% - 2 * 16px) / 4);
   flex-direction: column;
-  border: 1px solid #161827;
-  background-color: #161827;
+
+  height: 100%;
   padding: 32px;
+  border: 1px solid #161827;
+
+  background-color: #161827;
 
   @include tablet {
     padding: 20px;
@@ -118,36 +125,41 @@ main {
     width: 100%;
     height: auto;
     max-height: 260px;
-    object-fit: contain;
     margin-bottom: 16px;
+
+    object-fit: contain;
   }
 
   @include mobile {
     width: 100%;
     height: auto;
     max-height: 180px;
-    object-fit: contain;
     margin-bottom: 12px;
+
+    object-fit: contain;
   }
 }
 
 .Link {
   margin: auto;
   padding: 0;
-  background-color: #161827;
   text-decoration: none;
+  background-color: #161827;
 }
 
 .name {
-  font-family: Mont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  color: #f1f2f9;
   width: 208px;
   margin-bottom: 8px;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #f1f2f9;
+  letter-spacing: 0%;
+
   background-color: #161827;
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -165,27 +177,30 @@ main {
 }
 
 .price {
-  font-family: Mont, sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 140%;
-  letter-spacing: 0%;
-  color: #f1f2f9;
   margin-bottom: 16px;
+
+  font-family: Mont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #f1f2f9;
+  letter-spacing: 0%;
+
   background-color: #161827;
 
   @include mobile {
-    font-size: 16px;
     margin-bottom: 8px;
+    font-size: 16px;
   }
 }
 
 .fullprice {
-  font-weight: 600;
   font-size: 22px;
+  font-weight: 600;
   line-height: 100%;
-  text-decoration: line-through;
   color: #75767f;
+  text-decoration: line-through;
+
   background-color: #161827;
 
   @include mobile {
@@ -196,20 +211,23 @@ main {
 .characteristics {
   display: flex;
   justify-content: space-between;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #75767f;
+
   margin-bottom: 16px;
-  background-color: #161827;
-  border-top: 1px solid #3b3e4a;
   padding-top: 16px;
+  border-top: 1px solid #3b3e4a;
+
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #75767f;
+  letter-spacing: 0%;
+
+  background-color: #161827;
 
   @include mobile {
-    font-size: 10px;
     padding-top: 10px;
+    font-size: 10px;
   }
 }
 
@@ -232,8 +250,8 @@ main {
 }
 
 .characteristicItemText {
-  background-color: #161827;
   color: #f1f2f9;
+  background-color: #161827;
 }
 
 .buttons {
@@ -246,18 +264,22 @@ main {
 }
 
 .addButton {
-  flex: 1;
-  padding: 8px;
-  font-family: Mont, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0%;
-  text-align: center;
-  border: none;
-  background: #905bff;
-  color: #f1f2f9;
   cursor: pointer;
+
+  flex: 1;
+
+  padding: 8px;
+  border: none;
+
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #f1f2f9;
+  text-align: center;
+  letter-spacing: 0%;
+
+  background: #905bff;
 
   &:hover {
     background-color: #a378ff;
@@ -278,14 +300,17 @@ main {
 }
 
 .likeButton {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #323542;
-  background: #323542;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid #323542;
+
+  background: #323542;
 
   &:hover {
     background-color: #4a4d58;
@@ -298,8 +323,8 @@ main {
 }
 
 .likeButtonClick {
-  background-color: transparent;
   border: 1px solid #323542;
+  background-color: transparent;
 }
 
 .imgLike {

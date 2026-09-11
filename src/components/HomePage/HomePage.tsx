@@ -8,7 +8,6 @@ export const HomePage = () => {
   return (
     <>
       <main className="main">
-        <h1 className="visuallyHidden">Product Catalog</h1>
         <HeroSection />
         <NewModel />
         <Categories />

@@ -17,6 +17,7 @@ export const App = () => (
       <header className="header">
         <Navbar />
       </header>
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/phones" element={<Phones />} />
