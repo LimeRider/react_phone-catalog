@@ -221,7 +221,7 @@ export const Tablets: React.FC = () => {
                   alt={product.name}
                 />
               </Link>
-              <Link className={style.Link} to={`/product/${product.id}`}>
+              <Link className={style.LinkName} to={`/product/${product.id}`}>
                 {' '}
                 <p className={style.name}>{product.name}</p>
               </Link>

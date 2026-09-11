@@ -239,6 +239,7 @@
   @include mobile {
     padding-top: 10px;
     font-size: 10px;
+    gap: 49px;
   }
 }
 
@@ -263,6 +264,10 @@
 .characteristicItemText {
   color: #f1f2f9;
   background-color: #161827;
+
+  @include mobile {
+    height: 24px;
+  }
 }
 
 .buttons {

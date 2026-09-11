@@ -308,6 +308,10 @@ main {
   letter-spacing: 0%;
 
   background-color: transparent;
+
+  @include mobile {
+    gap: 49px;
+  }
 }
 
 .characteristic {
@@ -329,6 +333,10 @@ main {
 .characteristicItemText {
   color: #f1f2f9;
   background-color: transparent;
+
+  @include mobile {
+    height: 24px;
+  }
 }
 
 .characteristicText {
